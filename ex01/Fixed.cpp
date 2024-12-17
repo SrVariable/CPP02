@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:24:58 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/17 17:09:55 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/17 18:45:51 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 const int	Fixed::fractionalBits = 8;
 
-Fixed::Fixed()
+Fixed::Fixed() : rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	rawBits = 0;
 }
 
 Fixed::~Fixed()
@@ -27,7 +26,7 @@ Fixed::~Fixed()
 
 Fixed	&Fixed::operator=(const Fixed &that)
 {
-	std::cout << "Copy constructor operator" << std::endl;
+	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &that)
 		rawBits = that.getRawBits();
 	return (*this);

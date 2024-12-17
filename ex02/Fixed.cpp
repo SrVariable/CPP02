@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:24:58 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/17 17:38:38 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/17 20:02:12 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 const int	Fixed::fractionalBits = 8;
 
-Fixed::Fixed()
+Fixed::Fixed() : rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	rawBits = 0;
 }
 
 Fixed::~Fixed()
@@ -27,7 +26,7 @@ Fixed::~Fixed()
 
 Fixed	&Fixed::operator=(const Fixed &that)
 {
-	std::cout << "Copy constructor operator" << std::endl;
+	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &that)
 		rawBits = that.getRawBits();
 	return (*this);
@@ -81,54 +80,54 @@ std::ostream	&operator<<(std::ostream &out, const Fixed &fixed)
 
 bool	Fixed::operator>(const Fixed &that) const
 {
-	return (this->rawBits > that.getRawBits());
+	return (rawBits > that.getRawBits());
 }
 
 bool	Fixed::operator<(const Fixed &that) const
 {
-	return (this->rawBits < that.getRawBits());
+	return (rawBits < that.getRawBits());
 }
 
 bool	Fixed::operator>=(const Fixed &that) const
 {
-	return (this->rawBits >= that.getRawBits());
+	return (rawBits >= that.getRawBits());
 }
 
 bool	Fixed::operator<=(const Fixed &that) const
 {
-	return (this->rawBits <= that.getRawBits());
+	return (rawBits <= that.getRawBits());
 }
 
 bool	Fixed::operator==(const Fixed &that) const
 {
-	return (this->rawBits == that.getRawBits());
+	return (rawBits == that.getRawBits());
 }
 
 bool	Fixed::operator!=(const Fixed &that) const
 {
-	return (this->rawBits != that.getRawBits());
+	return (rawBits != that.getRawBits());
 }
 
 Fixed	Fixed::operator+(const Fixed &that) const
 {
-	return (Fixed(this->toFloat() + that.toFloat()));
+	return (Fixed(toFloat() + that.toFloat()));
 }
 
 Fixed	Fixed::operator-(const Fixed &that) const
 {
-	return (Fixed(this->toFloat() - that.toFloat()));
+	return (Fixed(toFloat() - that.toFloat()));
 }
 
 Fixed	Fixed::operator*(const Fixed &that) const
 {
-	return (Fixed(this->toFloat() * that.toFloat()));
+	return (Fixed(toFloat() * that.toFloat()));
 }
 
 Fixed	Fixed::operator/(const Fixed &that) const
 {
 	if (that.toFloat() == 0)
 		return (Fixed(0));
-	return (Fixed(this->toFloat() / that.toFloat()));
+	return (Fixed(toFloat() / that.toFloat()));
 }
 
 Fixed	Fixed::operator++(int)
