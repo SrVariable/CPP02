@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 15:47:56 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/12/17 15:49:22 by ribana-b         ###   ########.com       #
+#    Updated: 2024/12/17 22:12:55 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,4 +110,4 @@ tags:
 	@ctags -F $(shell cat temp)
 	@$(RM) temp
 
-.PHONY = all clean debug example fclean re tags
+.PHONY: all clean debug example fclean re tags
